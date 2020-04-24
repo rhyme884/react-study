@@ -1,9 +1,18 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { Home, About, Posts } from '../pages';
+import { Menu } from '../components';
 
 const App: React.FC = () => {
     return (
         <div>
-            Hello React!
+            <Menu />
+            <Route exact path="/" component={Home} />
+            <Switch>
+                <Route path="/about/:name" component={About} />
+                <Route path="/about" component={About} />
+            </Switch>
+            <Route path="/posts" component={Posts} />
         </div>
     )
 }
